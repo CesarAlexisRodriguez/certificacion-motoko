@@ -1,0 +1,26 @@
+{
+  "canisters": {
+    "gamer_zone_backend": {
+      "main": "src/gamer_zone_backend/main.mo",
+      "type": "motoko"
+    },
+    "gamer_zone_frontend": {
+      "dependencies": [
+        "gamer_zone_backend"
+      ],
+      "source": [
+        "src/gamer_zone_frontend/dist"
+      ],
+      "type": "assets",
+      "workspace": "gamer_zone_frontend"
+    }
+  },
+  "defaults": {
+    "build": {
+      "args": "",
+      "packtool": ""
+    }
+  },
+  "output_env_file": ".env",
+  "version": 1
+}
