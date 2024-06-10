@@ -7,18 +7,19 @@ import {
 import App from './App';
 import './index.scss';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import List from './List';
+import FormJuego from './FormJuego';
+
 
 
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <App></App>,
+    element: <App />,
   },
   {
-    path: "/list-first",
-    element: <List></List>
+    path: "/FormJuego",
+    element: <FormJuego></FormJuego>,
   },
 ]);
 

@@ -9,9 +9,16 @@ actor listajuegos {
     calificacion : Nat;
   };
 
-  var juegos : [juego] = [];
+  var juegos : [juego] = [
+    {
+      id = 1;
+      title = "Call of duty: Black Ops II";
+      descripcion = "Shooter";
+      calificacion = 5;
+    }
+  ];
 
-  public func addjuego(id : Nat, title : Text, descripcion : Text, calificacion : Nat) : async Bool{
+  public func addjuego(title : Text, descripcion : Text, calificacion : Nat) : async Bool{
     let newId = Array.size(juegos) + 1;
     let newJuego = {
       id = newId;
