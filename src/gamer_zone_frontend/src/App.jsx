@@ -79,7 +79,7 @@ getJuegos();
                     juegos.map((juego) => (
                       <tr>
                         <td>{Number(juego.id)}</td>
-                        <td>{juego.titulo}</td>
+                        <td>{juego.title}</td>
                         <td>{juego.descripcion}</td>
                         <td>{Number(juego.calificacion)}</td>
                         <td>

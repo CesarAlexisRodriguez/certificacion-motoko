@@ -2,14 +2,14 @@ import Array "mo:base/Array";
 
 actor listajuegos {
 
-  type juego = {
+  type Juego = {
     id : Nat;
     title : Text;
     descripcion : Text;
     calificacion : Nat;
   };
 
-  var juegos : [juego] = [
+  var juegos : [Juego] = [
     {
       id = 1;
       title = "Call of duty: Black Ops II";
@@ -26,19 +26,19 @@ actor listajuegos {
       descripcion = descripcion;
       calificacion = calificacion;
     };
-    juegos := Array.append<juego>(juegos,[newJuego]);
+    juegos := Array.append<Juego>(juegos,[newJuego]);
     return true;
   };
 
-  public func getAllJuegos() : async [juego]{
+  public func getAllJuegos() : async [Juego] {
     return juegos;
   };
 
-  public func getjuegoById(id : Nat) : async ?juego {
-    return Array.find<juego>(juegos, func(m) {m.id == id});
+  public func getjuegoById(id : Nat) : async ?Juego {
+    return Array.find<Juego>(juegos, func(m) {m.id == id});
   };
   public func updatejuego(id : Nat, title : Text, descripcion : Text, calificacion : Nat) : async Bool{
-    let juegoToUpdate = Array.find<juego>(juegos, func(task) { task.id == id });
+    let juegoToUpdate = Array.find<Juego>(juegos, func(task) { task.id == id });
 
     switch(juegoToUpdate) {
       case(null) {return false};
@@ -49,15 +49,15 @@ actor listajuegos {
           descripcion = descripcion;
           calificacion = calificacion;
         };
-        juegos := Array.map<juego, juego>(juegos, func(m) { if (m.id == id) { updatejuego } else { m } });
+        juegos := Array.map<Juego, Juego>(juegos, func(m) { if (m.id == id) { updatejuego } else { m } });
         return true;
        };
     };
   };
   public func deletejuego(id : Nat) : async Bool{
-    let juego = Array.find<juego>(juegos, func(task) { task.id == id});
+    let juego = Array.find<Juego>(juegos, func(task) { task.id == id});
     if (juego != null){
-      juegos := Array.filter<juego>(juegos, func(task) { task.id != id});
+      juegos := Array.filter<Juego>(juegos, func(task) { task.id != id});
       return true;
     }else {
       return false;
